@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game: Guess The Number</title>
+</head>
+
+<body>
+    <script>
+        let playAgain = "yes";
+
+        while (playAgain == "yes") {
+
+            let randomNumber = Math.floor(Math.random() * 100);
+            let attempts = 0;
+            let guess = 0;
+
+            while (attempts < 10) {
+
+                guess = prompt("Enter a number between 1 and 100:");
+
+                if (guess < 1 || guess > 100) {
+                    alert("Please enter a number between 1 and 100.");
+                    continue;
+                }
+
+                attempts++;
+
+                if (guess > randomNumber) {
+                    alert("Too High!");
+                }
+                else if (guess < randomNumber) {
+                    alert("Too Low!");
+                }
+                else {
+                    alert("Congratulations! You Win!");
+                    alert("Total Attempts: " + attempts);
+                    break;
+                }
+            }
+
+            if (guess != randomNumber) {
+                alert("Game Over!");
+                alert("Correct Number is: " + randomNumber);
+            }
+
+            playAgain = prompt("Do you want to play again? (yes/no)");
+
+            if (playAgain != "yes") {
+                alert("Thank You for Playing!");
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>
